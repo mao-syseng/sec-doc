@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.3" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #eff1f5;
+        --fg: #4c4f69;
+        --main-font: "IBM Plex Mono", monospace, monospace;
+      }
+      .m-1 {
+        margin: 0.5rem 0;
+      }
+      .nested-list details {
+        margin: 0.5rem 0;
+      }
+      .simo-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 10px;
+        .box {
+          margin: 0;
+        }
+      }
+      .doma-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        details {
+          width: 70%;
+        }
+      }
+      #line1 {
+        position: relative;
+        top: -92px;
+        left: 217px;
+        rotate: -25deg;
+        width: 138px;
+      }
+      .line-container {
+        position: relative;
+        display: inline-block;
+        padding: 10px 0;
+        cursor: pointer;
+      }
+      .line-container::after {
+        content: "";
+        display: block;
+        position: relative;
+        width: 168px;
+        height: 3px;
+        left: 203px;
+        bottom: 100px;
+        rotate: 45deg;
+        background: repeating-linear-gradient(
+          to right,
+          #4c4f69 0,
+          #4c4f69 5px,
+          transparent 5px,
+          transparent 10px
+        );
+      }
+      .line-container::before {
+        content: "";
+        display: block;
+        position: relative;
+        width: 168px;
+        height: 3px;
+        left: 203px;
+        bottom: 100px;
+        rotate: -45deg;
+        background: repeating-linear-gradient(
+          to right,
+          #4c4f69 0,
+          #4c4f69 5px,
+          transparent 5px,
+          transparent 10px
+        );
+      }
+    </style>
+    <title>SEC-DOC</title>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <p>
+        <a href="#section-title" class="allcaps">sec-doc</a>
+      </p>
+      <nav>
+        <ul role="list">
+          <li><a href="#section-simo">SIMO</a></li>
+          <li><a href="#section-core">CORE</a></li>
+          <li><a href="#section-doma">DOMA</a></li>
+          <li><a href="#section-terminology">Terminology</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1
+        id="section-title"
+        tabindex="-1"
+        title="Systems Engineering Concept Documentation"
+      >
+        SEC-DOC
+
+        <a class="permalink-anchor float:right" href="#section-simo">§</a>
+      </h1>
+
+      <sub-title
+        >An attempt at a more visual documentation for SEC-Hub. <br />
+        Hover over elements to see their domain name. <br />
+        Hover over abbreviations to see their full name.</sub-title
+      >
+
+      <section>
+        <h2 title="Systems Integration Monitor" id="section-simo" tabindex="-1">
+          <a class="permalink-anchor float:right" href="#section-simo">§</a>
+          SIMO
+        </h2>
+        <div class="simo-grid">
+          <div class="box" title="Dimensions of the grid">4x4</div>
+          <div title="OOC - Object Occurence" class="box info">
+            <strong class="block titlebar">=G1</strong>
+            Water supply system
+          </div>
+          <div class="box" title="OOC - Object Occurence">
+            <strong class="block titlebar">=G1=GP1</strong>
+            Pump System
+          </div>
+          <div class="box" title="OOC - Object Occurence">
+            <strong class="block titlebar">=G1=GC3</strong>
+            Filter
+          </div>
+          <div class="box info" title="OOC - Object Occurence">
+            <strong class="block titlebar">=G1</strong>
+            Water supply system
+          </div>
+          <div class="box info" title="OOC - Object Occurence">
+            <strong class="block titlebar">=G1</strong>
+            Water supply system
+          </div>
+          <div class="box" title="OOR - Object Occurence Relation">
+            <h5>
+              BC
+              <span
+                title="Second OOR on this grid cell. Can have multiple"
+                style="float: right"
+                >AA</span
+              >
+            </h5>
+          </div>
+          <div
+            class="box"
+            title="Unknown relation - We don't know if there is a relation here"
+          >
+            <h5>?</h5>
+          </div>
+          <div class="box" title="OOC - Object Occurence">
+            <strong class="block titlebar">=G1=GP1</strong>Pump System
+          </div>
+          <div
+            class="box"
+            title="Unknown relation - We don't know if there is a relation here"
+          >
+            <h5>?</h5>
+          </div>
+          <div class="box" title="OOC - Object Occurence">
+            <strong class="block titlebar">=G1=GP1</strong>Pump System
+          </div>
+          <div
+            class="box"
+            title="Empty grid cell - This means no one has looked at this relation between objects and nothing has been decided yet"
+          ></div>
+          <div class="box" title="OOC - Object Occurence">
+            <strong class="block titlebar">=G1=GC3</strong>Filter
+          </div>
+          <div class="box" title="OOR - Object Occurence Relation">
+            <h5>DB</h5>
+          </div>
+          <div
+            class="box"
+            title="No relation - We know that there is no relation between Filter and Pump System "
+          >
+            <h5>-</h5>
+          </div>
+          <div class="box" title="OOC - Object Occurence">
+            <strong class="block titlebar">=G1=GC3</strong>Filter
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2
+          id="section-core"
+          class="core"
+          tabindex="-1"
+          title="Common Reference Designation Editor"
+        >
+          <a class="permalink-anchor float:right" href="#section-core">§</a>CORE
+        </h2>
+        <h5 class="m-1" title="Context, Aspect or Topnode">
+          <u>Functional</u>
+        </h5>
+        <ul class="nested-list m-1">
+          <details title="OOC - Object Occurence" open>
+            <summary>=G1 Water supply system</summary>
+            <details title="OOC - Object Occurence" open>
+              <summary>=GP1 Pump system</summary>
+              <details title="OOC - Object Occurence" open>
+                <summary>=HQB1 Filter</summary>
+              </details>
+              <details title="OOC - Object Occurence" open>
+                <summary>=QMA1 Shut-off valve</summary>
+              </details>
+              <details title="OOC - Object Occurence" open>
+                <summary>=WDB1 Power cable for pump</summary>
+              </details>
+              <details title="OOC - Object Occurence" open>
+                <summary>=WGA1 Control cable for valve</summary>
+              </details>
+              <details title="OOC - Object Occurence" open>
+                <summary>=WPA1 Pipe to water supply inlet</summary>
+              </details>
+            </details>
+            <details title="OOC - Object Occurence" open>
+              <summary>=HQ1 Reverse Osmosis plant system</summary>
+            </details>
+            <details title="OOC - Object Occurence" open>
+              <summary>=HS1 Ion exchanger plant</summary>
+            </details>
+          </details>
+          <details title="OOC - Object Occurence">
+            <summary>=C1 Control system</summary>
+          </details>
+          <details title="OOC - Object Occurence">
+            <summary>=G2 Additive supply system</summary>
+            <details title="OOC - Object Occurence">
+              <summary>=CM1 Pre-Soap storage system</summary>
+              <details title="OOC - Object Occurence">
+                <summary>=BLB1 Level Switch</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=CMA1 Tank</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=QMA1 Shut-off valve</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=WGA1 Control cable level switch</summary>
+              </details>
+            </details>
+            <details title="OOC - Object Occurence">
+              <summary>=CM2 Main-Soap storage system</summary>
+              <details title="OOC - Object Occurence">
+                <summary>=BLB1 Level switch</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=CMA1 Tank</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=QMA1 Shut-off valve</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=WGA1 Control Cable level switch</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=WGA2 Control cable shut-off valve</summary>
+              </details>
+            </details>
+            <details title="OOC - Object Occurence">
+              <summary>=CM3 Rinse additive storage system</summary>
+              <details title="OOC - Object Occurence">
+                <summary>=BLB1 Level switch</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=CMA1 Tank</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=QMA1 Shut-off valve</summary>
+              </details>
+            </details>
+            <details title="OOC - Object Occurence">
+              <summary>=CM4 Polish additive storage system</summary>
+              <details title="OOC - Object Occurence">
+                <details title="OOC - Object Occurence">
+                  <summary>=BLB1 Level switch</summary>
+                </details>
+                <details title="OOC - Object Occurence">
+                  <summary>=CMA1 Tank</summary>
+                </details>
+                <details title="OOC - Object Occurence">
+                  <summary>=QMA1 Shut-off valve</summary>
+                </details>
+              </details>
+            </details>
+          </details>
+          <details title="OOC - Object Occurence">
+            <summary>=G3 Power supply system</summary>
+            <details title="OOC - Object Occurence">
+              <summary>=WD1 Power supply for drives</summary>
+            </details>
+          </details>
+          <details title="OOC - Object Occurence">
+            <summary>=S1 Chemical Dispensing System</summary>
+            <details title="OOC - Object Occurence">
+              <summary>=CS1 Pre-Mix Storage Unit</summary>
+              <details title="OOC - Object Occurence">
+                <summary>=LS1 Level Detector</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=TK1 Storage Tank</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=SV1 Isolation Valve</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=CB1 Control Cable for Level Detector</summary>
+              </details>
+            </details>
+            <details title="OOC - Object Occurence">
+              <summary>=CS2 Main Storage Unit</summary>
+              <details title="OOC - Object Occurence">
+                <summary>=LS2 Level Detector</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=TK2 Storage Tank</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=SV2 Isolation Valve</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=CB2 Control Cable for Level Detector</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=CB3 Control Cable for Isolation Valve</summary>
+              </details>
+            </details>
+            <details title="OOC - Object Occurence">
+              <summary>=CS3 Rinse Additive Unit</summary>
+              <details title="OOC - Object Occurence">
+                <summary>=LS3 Level Detector</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=TK3 Storage Tank</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=SV3 Isolation Valve</summary>
+              </details>
+            </details>
+            <details title="OOC - Object Occurence">
+              <summary>=CS4 Polish Additive Unit</summary>
+              <details title="OOC - Object Occurence">
+                <details title="OOC - Object Occurence">
+                  <summary>=LS4 Level Detector</summary>
+                </details>
+                <details title="OOC - Object Occurence">
+                  <summary>=TK4 Storage Tank</summary>
+                </details>
+                <details title="OOC - Object Occurence">
+                  <summary>=SV4 Isolation Valve</summary>
+                </details>
+              </details>
+            </details>
+          </details>
+        </ul>
+      </section>
+      <section>
+        <h2
+          title="Domain Modeling"
+          id="section-doma"
+          tabindex="-1"
+        >
+          <a class="permalink-anchor float:right" href="#section-doma">§</a>
+          DOMA
+        </h2>
+        <div class="doma-grid">
+          <div>
+            <h5 class="m-1" title="Context, Aspect or Topnode">
+              <u>Functional</u>
+            </h5>
+            <ul class="nested-list m-1">
+              <details title="OOC - Object Occurence">
+                <summary>=E1 Body system</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=C2 Storing object</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>=F1 Safety system</summary>
+              </details>
+            </ul>
+          </div>
+          <div>
+            <h5 class="m-1" title="Context, Aspect or Topnode">
+              <u>Product</u>
+            </h5>
+            <ul class="nested-list m-1">
+              <details title="OOC - Object Occurence">
+                <summary>-C3 Cabin Module</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>-N1 Body module</summary>
+              </details>
+              <details title="OOC - Object Occurence">
+                <summary>-U1 Chassis module</summary>
+              </details>
+            </ul>
+          </div>
+          <span
+            class="line-container"
+            title="OODR - Object Occurence Domain Relation"
+          ></span>
+        </div>
+      </section>
+      <section>
+        <h2 id="section-terminology" tabindex="-1">
+          <a class="permalink-anchor float:right" href="#section-terminology"
+            >§</a
+          >
+          Terminology
+        </h2>
+        <h4>
+          OOC - Object Occurrence
+          <sub-title
+            >In CORE and DOMA it is each node in the tree structue. In SIMO it
+            is the named boxes. Can also be called system.</sub-title
+          >
+        </h4>
+        <h4>
+          OOR - Object Occurrence Relation AKA Interface
+          <sub-title
+            >The relationship between 2 OOC, shown in SIMO. Also called
+            interfaces in SIMO. It is not the same as the relationship between 2
+            OOC in DOMA. This is called OOCR in some places, but that is
+            wrong.</sub-title
+          >
+        </h4>
+        <h4>
+          OODR - Object Occurence Domain Relation
+          <sub-title>The connection between 2 OOC, shown in DOMA</sub-title>
+        </h4>
+        <h4>
+          Aspect | Context | Topnode
+          <sub-title
+            >This is what you select when using CORE, or select multiple when
+            using DOMA</sub-title
+          >
+        </h4>
+        <h4>
+          CORE - Common Reference Designation Editor
+          <sub-title
+            >This is a page in SEC-Hub, it shows a tree structure of Object
+            Occurences where you can add new siblings or children to each Object
+            Occurence</sub-title
+          >
+        </h4>
+        <h4>
+          SIMO - Systems Integration Monitor
+          <sub-title
+            >This is a page in SEC-Hub, it shows an interactive N2 Diagram where
+            users can define Object Occurence Relations which describe the input
+            and output to/from other Object Occurences
+          </sub-title>
+        </h4>
+        <h4>
+          DOMA - Domain Mapping
+          <sub-title
+            >This is a page in SEC-Hub and shows a tree structure of Object
+            Occurences for each selected <b>Aspect/Context/Topnode</b>
+          </sub-title>
+        </h4>
+        <h4>
+          Deadline | Milestone
+          <sub-title
+            >These should only be called deadline, but there are places in the
+            code it is called milestone.
+            <ul>
+              <li>
+                Are assigned to OORs, multiple different OORs can have the same
+                deadline
+              </li>
+              <li>Are created first without any link to any OORs.</li>
+            </ul>
+          </sub-title>
+        </h4>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
